@@ -1,0 +1,18 @@
+
+#language: es
+
+@testfeature
+Característica: Product - Store
+
+  @testMyStore
+  Esquema del escenario: Validación del precio de un producto
+    Dado estoy en la página de la tienda
+    Y me logueo con mi usuario "<email>" y clave "<password>"
+    Cuando navego a la categoria "Clothes" y subcategoria "Men"
+    Y agrego 2 unidades del primer producto al carrito
+    Entonces valido en el popup la confirmación del producto agregado
+
+
+    Ejemplos:
+      | email                    | password     |
+      | vasty.terrel07@gmail.com | Mystore159#  |
