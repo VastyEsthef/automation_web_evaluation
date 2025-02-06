@@ -2,11 +2,13 @@ package com.nttdata.stepsdefinitions;
 
 import com.nttdata.steps.CategoryMyStoreSteps;
 import com.nttdata.steps.LoginMyStoreSteps;
+import com.nttdata.steps.PopupConfirmationProductsMyStoreSteps;
 import com.nttdata.steps.SelectProductsSteps;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 
 import static com.nttdata.core.DriverManager.getDriver;
@@ -15,11 +17,11 @@ import static com.nttdata.core.DriverManager.screenShot;
 public class LoginMyStoreStepsDef {
 
     private WebDriver driver;
-    /*
-    private InventoryMyStoreSteps inventoryMyStoreSteps(WebDriver driver){
-        return new InventoryMyStoreSteps(driver);
+
+    private PopupConfirmationProductsMyStoreSteps popupConfirmationProductsMyStoreSteps(WebDriver driver){
+        return new PopupConfirmationProductsMyStoreSteps(driver);
     }
-    */
+
     @Dado("estoy en la página de la tienda")
     public void estoy_en_la_página_de_la_tienda() {
         driver = getDriver();
@@ -52,6 +54,14 @@ public class LoginMyStoreStepsDef {
     }
     @Entonces("valido en el popup la confirmación del producto agregado")
     public void valido_en_el_popup_la_confirmación_del_producto_agregado() {
+        String title =  popupConfirmationProductsMyStoreSteps(driver).getConfirmationPopup();
+        System.out.println("***************");
+        //System.out.println(title);
+        Assertions.assertEquals("Hay 2 artículos en su carrito.", title);
+    }
 
+    @Y("valido en el popup que el monto total sea calculado correctamente")
+    public void valido_en_el_popup_que_el_monto_total_sea_calculado_correctamente() {
+        
     }
 }

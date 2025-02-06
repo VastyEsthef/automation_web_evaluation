@@ -11,6 +11,7 @@ Característica: Product - Store
     Cuando navego a la categoria "Clothes" y subcategoria "Men"
     Y agrego 2 unidades del primer producto al carrito
     Entonces valido en el popup la confirmación del producto agregado
+    Y valido en el popup que el monto total sea calculado correctamente
 
 
     Ejemplos:
