@@ -11,7 +11,7 @@ public class SelectProductsSteps {
         this.driver = driver;
     }
 
-    // BUTTON-SelectProduct
+    // BUTTON
     public void selectProduct(){
         this.driver.findElement(SelectTshirtPageMyStore.t_ShirtButton).click();
         this.driver.findElement(SelectTshirtPageMyStore.select1TshirtButton).click();

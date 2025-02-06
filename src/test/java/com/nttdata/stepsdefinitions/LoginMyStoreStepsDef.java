@@ -62,6 +62,19 @@ public class LoginMyStoreStepsDef {
 
     @Y("valido en el popup que el monto total sea calculado correctamente")
     public void valido_en_el_popup_que_el_monto_total_sea_calculado_correctamente() {
-        
+        String totalPrice =  popupConfirmationProductsMyStoreSteps(driver).getConfirmationTotalPricePopup();
+        System.out.println("***************");
+        System.out.println(totalPrice);
+        Assertions.assertEquals("S/ 38.24", totalPrice);
+    }
+
+    @Cuando("finalizo la compra")
+    public void finalizo_la_compra() {
+        PopupConfirmationProductsMyStoreSteps popupConfirmationProductsMyStoreSteps = new PopupConfirmationProductsMyStoreSteps(driver);
+        System.out.println("Antes del: Finalizó compra y cerro el popup");
+        popupConfirmationProductsMyStoreSteps.completePurchasePopup();
+        System.out.println("Finalizó compra y cerro el popup");
+        screenShot();
+
     }
 }
